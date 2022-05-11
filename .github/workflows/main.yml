@@ -16,6 +16,7 @@ jobs:
             const mytitle = 'test'
             const user = 'sharyarN'
             var title = context.payload.pull_request.title;
+            const words = title.split(' ');
             const creator = context.payload.sender.login
             const commentBody = '👋 Hi ' + creator + '!'
             github.rest.issues.createComment({
@@ -24,12 +25,12 @@ jobs:
               repo: context.repo.repo,
               body: commentBody
             })
-            if (creator==user && title==mytitle) {
+            if (words[0]==mytitle) {
               await github.rest.issues.addLabels({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                labels: ['Sharyar']
+                labels: ['test']
             })
             } else {
               await github.rest.issues.addLabels({
