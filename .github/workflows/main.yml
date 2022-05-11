@@ -20,7 +20,7 @@ jobs:
               repo: context.repo.repo,
               body: commentBody
             })
-            if (creator === context.repo.owner) {
+            if (creator) {
               await github.rest.issues.addLabels({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
