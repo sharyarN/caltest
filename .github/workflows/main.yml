@@ -13,6 +13,7 @@ jobs:
         with:
           script: |
             console.log(context)
+            var title = context.payload.pull_request.title;
             const creator = context.payload.sender.login
             const commentBody = '👋 Hi ' + creator + '!'
             github.rest.issues.createComment({
@@ -21,12 +22,12 @@ jobs:
               repo: context.repo.repo,
               body: commentBody
             })
-            if (creator === context.repo.owner) {
+            if (title==test) {
               await github.rest.issues.addLabels({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                labels: ['NASEEM']
+                labels: ['TEST']
             })
             } else {
               await github.rest.issues.addLabels({
