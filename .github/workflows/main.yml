@@ -17,13 +17,12 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Hi context.repo.owner !'
+              body: '👋 Hi  !' context.repo.owner creator
             })
-            if (creator === sharyarN) {
             github.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ['mylabel']
             })
-            }
+
