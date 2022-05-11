@@ -12,7 +12,6 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            const user = sharyarN
             const creator = context.payload.sender.login
             const commentBody = '👋 Hi ' + creator + '!'
             github.rest.issues.createComment({
