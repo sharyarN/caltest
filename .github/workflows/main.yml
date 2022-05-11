@@ -12,7 +12,9 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            console.log(context)
+            var branch_url = context.payload.repository.branch_url;
+            
+            console.log(branch_url)
             const mytitle = 'test'
             const user = 'sharyarN'
             var title = context.payload.pull_request.title;
