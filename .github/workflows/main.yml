@@ -20,18 +20,9 @@ jobs:
               repo: context.repo.repo,
               body: commentBody
             })
-            if (creator) {
-              await github.rest.issues.addLabels({
+             github.rest.issues.addLabels({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 labels: ['NASEEM']
             })
-            } else {
-              await github.rest.issues.addLabels({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                labels: ['UNKNOWN']
-            })
-            }
