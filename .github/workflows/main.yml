@@ -12,6 +12,7 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
+            const user = sharyarN
             const creator = context.payload.sender.login
             const commentBody = '👋 Hi ' + creator + '!'
             github.rest.issues.createComment({
@@ -20,10 +21,17 @@ jobs:
               repo: context.repo.repo,
               body: commentBody
             })
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['mylabel']
+            if (user) {
+              await github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['NASEEM']
             })
-
+            } else {
+              await github.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['UNKNOWN']
+            }
