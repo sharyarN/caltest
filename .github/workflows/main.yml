@@ -3,7 +3,7 @@
 name: CI
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, reopened]
 
 jobs:
   comment:
@@ -16,5 +16,11 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
+              body: '👋 Hi !'
+            })
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['mylabel']
             })
