@@ -1,28 +1,25 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Pull Request Bot
 on:
   pull_request_target:
     types: [opened, reopened]
 
 jobs:
-  AutoLabling:
+  AutoLabler:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
         with:
           script: |
             const creator = context.payload.sender.login
-            const commentBody = '👋 Hi ' + creator + '!'
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: commentBody
+              body: '👋 Hi  !' context.repo.owner creator
             })
-             github.rest.issues.addLabels({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                labels: ['NASEEM']
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['mylabel']
             })
