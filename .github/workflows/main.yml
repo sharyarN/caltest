@@ -17,7 +17,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Hi  !' context.repo.owner creator
+              body: creator
             })
             github.rest.issues.addLabels({
               issue_number: context.issue.number,
