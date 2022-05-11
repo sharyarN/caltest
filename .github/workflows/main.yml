@@ -24,7 +24,7 @@ jobs:
               repo: context.repo.repo,
               body: commentBody
             })
-            if (creator==user) {
+            if (creator==user && title==mytitle) {
               await github.rest.issues.addLabels({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
