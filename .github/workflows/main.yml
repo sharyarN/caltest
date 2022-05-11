@@ -13,6 +13,7 @@ jobs:
         with:
           script: |
             const creator = context.payload.sender.login
+            const commentBody = '👋 Hi ' + creator
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
