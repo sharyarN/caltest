@@ -26,11 +26,10 @@ jobs:
               body: commentBody
             })
             if (words[0]==mytitle) {
-              await github.rest.issues.addLabels({
+              await github.rest.issues.addReviewers({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                labels: ['test']
                 requested_reviewers: ['sharyarN']
             })
             } else {
