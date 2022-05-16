@@ -40,3 +40,5 @@ jobs:
                 labels: ['UNKNOWN']
             })
             }
+      - name: Try to fail
+        run: exit 1
