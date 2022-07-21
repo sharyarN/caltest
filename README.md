@@ -1,4 +1,4 @@
-# The following is an example READ.md for refernce purposes, it is not linked to the actual code inside the repo
+# The following is an example READ.md for refernce purposes, it is not linked to the actual code inside the repo 
 
 
 
