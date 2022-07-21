@@ -13,6 +13,6 @@ jobs:
       - name: Commment 
         uses: NejcZdovc/comment-pr@v1
         with:
-          file: "${{GITHUB.WORKSPACE}}/README.md"
+          file: "test.md"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
