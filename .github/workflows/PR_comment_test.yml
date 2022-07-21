@@ -10,9 +10,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-      - name: Commment 
-        uses: NejcZdovc/comment-pr@v1
+        
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v2
         with:
-          file: "test.md"
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown** :sparkles:
